@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,10 @@
     <Compile Include="Migrations\202205150842121_FirstMigration.cs" />
     <Compile Include="Migrations\202205150842121_FirstMigration.Designer.cs">
       <DependentUpon>202205150842121_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205152107034_AddValue.cs" />
+    <Compile Include="Migrations\202205152107034_AddValue.Designer.cs">
+      <DependentUpon>202205152107034_AddValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -266,6 +271,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202205150842121_FirstMigration.resx">
       <DependentUpon>202205150842121_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205152107034_AddValue.resx">
+      <DependentUpon>202205152107034_AddValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
