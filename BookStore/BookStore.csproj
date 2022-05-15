@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +182,10 @@
     <Compile Include="Migrations\202205152107034_AddValue.cs" />
     <Compile Include="Migrations\202205152107034_AddValue.Designer.cs">
       <DependentUpon>202205152107034_AddValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205152111491_AddValue1.cs" />
+    <Compile Include="Migrations\202205152111491_AddValue1.Designer.cs">
+      <DependentUpon>202205152111491_AddValue1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -274,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205152107034_AddValue.resx">
       <DependentUpon>202205152107034_AddValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205152111491_AddValue1.resx">
+      <DependentUpon>202205152111491_AddValue1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

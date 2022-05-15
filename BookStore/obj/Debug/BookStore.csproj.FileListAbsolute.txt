@@ -109,3 +109,4 @@ C:\Users\khanh\source\repos\BookStore\BookStore\obj\Debug\BookStore.pdb
 C:\Users\khanh\source\repos\BookStore\BookStore\obj\Debug\BookStore.Migrations.FirstMigration.resources
 C:\Users\khanh\source\repos\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.cache
 C:\Users\khanh\source\repos\BookStore\BookStore\obj\Debug\BookStore.Migrations.AddValue.resources
+C:\Users\khanh\source\repos\BookStore\BookStore\obj\Debug\BookStore.Migrations.AddValue1.resources
