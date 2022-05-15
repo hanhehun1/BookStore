@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BookStore.Models.Category>
+@{
+    ViewBag.Title = "CategoryView";
+}
+
+<h2>Category View</h2>
+<br />
+@using (Html.BeginForm("CategoryView", "Admin", "POST"))
+{
+    <div class="input-group col-md-4">
+        @Html.TextBox("searchString", null, new { @type = "text", @class = "form-control ", @placeholder = "Search category..." })
+        <button type="submit" class="btn btn-light">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+}
+<br />
+@Html.ActionLink("Back To Book", "BookManage", "Admin", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Create", "CreateCategory", "Admin", null, new { @class = "btn btn-success" })
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td scope="row">@item.CategoryName</td>
+                <td scope="row">
+                    @Html.ActionLink("Delete", "DeleteCategory", "Admin",
+                                        new { id = item.Id },
+                                        new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Edit", "EditCategory", "Admin",
+                                        new { id = item.Id },
+                                        new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

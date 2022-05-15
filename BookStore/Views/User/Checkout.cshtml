@@ -1,0 +1,43 @@
+﻿@model BookStore.ViewModel.OrderDetailViewModel
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+@using (Html.BeginForm("Checkout", "User", "POST"))
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                @Html.HiddenFor(m => m.Book.Id)
+                @Html.HiddenFor(m => m.Book.Price)
+                <td>@Model.Book.Title</td>
+                <td>@Model.Book.Category.CategoryName</td>
+                <td>@Model.Book.Description</td>
+                <td>@Model.Book.Price</td>
+                <td>
+
+                    @Html.TextBoxFor(m => m.Quantity, new { @type = "number", id = "demoInput", @Value = "1" })
+                </td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-success" value="Buy Now" />
+
+}

@@ -1,0 +1,45 @@
+﻿@model BookStore.Models.OrderDetail
+@{
+    ViewBag.Title = "OrderDetail";
+}
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .container {
+        padding: 2px 16px;
+    }
+</style>
+<h2>Order Detail</h2>
+<div class="row no-gutters">
+    <div class="col-6 col-md-4">
+        <div class="card">
+            <img src="https://www.pngitem.com/pimgs/m/41-415019_profile-man-male-free-picture-male-avatar-clipart.png" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>@Model.User.FullName</b></h4>
+                <p>Address: @Model.User.Address</p>
+                <p>Phone Number: @Model.User.PhoneNumber</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-8">
+        <div class="card">
+
+            <div class="container">
+                <h2>Your Order in @Model.Datetime</h2>
+                <h4><b>@Model.Book.Title</b></h4>
+                <p>Price: @Model.Book.Price $</p>
+                <p>Quantity: @Model.Quantity</p>
+                <h5>Total Price: @Model.TotalPrice $</h5>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BookStore.Models.OrderDetail>
+@{
+    ViewBag.Title = "Order Manage";
+}
+
+<h2>Order Manage</h2>
+
+
+@using (Html.BeginForm("OrderList", "Admin", "POST"))
+{
+    <div class="input-group col-md-4">
+        @Html.TextBox("searchString", null, new { @type = "text", @class = "form-control ", @placeholder = "Search book..." })
+        <button type="submit" class="btn btn-light">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+}
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Buyer Name</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Date Buy</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.User.FullName</td>
+                <td>@item.Book.Title</td>
+                <td>@item.Book.Category.CategoryName</td>
+                <td>@item.Book.Price đ</td>
+                <td>@item.Datetime</td>
+                <td>@item.Quantity</td>
+                <td>@item.TotalPrice đ</td>
+
+                <td>
+
+
+                    @Html.ActionLink("Details", "OrderDetail", "Admin",
+                                             new { id = item.Id },
+                                             new { @class = "btn btn-primary" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

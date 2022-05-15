@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BookStore.Models.User>
+@{
+    ViewBag.Title = "StaffView";
+}
+
+<h2>Staff View</h2>
+
+@using (Html.BeginForm("UserManage", "Admin", "POST"))
+{
+    <div class="input-group col-md-4">
+        @Html.TextBox("searchString", null, new { @type = "text", @class = "form-control ", @placeholder = "Search user..." })
+        <button type="submit" class="btn btn-light">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+}
+<br />
+@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>
+                    @Html.ActionLink("Update", "UpdateUser", "Admin",
+                                             new { id = item.Id },
+                                             new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "DeleteUser", "Admin",
+                                            new { id = item.Id },
+                                            new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Change Password", "ChangePassword", "Admin",
+                                            new { id = item.Id },
+                                            new { @class = "btn btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+@{
+    ViewBag.Title = "Book Manage";
+}
+
+<h2>Book Management</h2>
+
+@Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-primary" })
+<h1> </h1>
+@using (Html.BeginForm("BookManage", "Admin", "POST"))
+{
+    <div class="input-group col-md-4">
+        @Html.TextBox("searchString", null, new { @type = "text", @class = "form-control ", @placeholder = "Search book..." })
+        <button type="submit" class="btn btn-light">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+}
+<br />
+
+@Html.ActionLink("Create Book", "CreateBook", "Admin", null, new { @class = "btn btn-success" })
+@Html.ActionLink("Category Management", "CategoryView", "Admin", null, new { @class = "btn btn-warning" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditBook", "Admin",
+                                             new { id = item.Id },
+                                             new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "DeleteBook", "Admin",
+                                             new { id = item.Id },
+                                             new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Details", "DetailBook", "Home",
+                                             new { id = item.Id },
+                                             new { @class = "btn btn-primary" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

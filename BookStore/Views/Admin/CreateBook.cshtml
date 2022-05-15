@@ -1,0 +1,77 @@
+﻿@model BookStore.ViewModel.CategoryBookViewModel
+@{
+    ViewBag.Title = "Create Book";
+}
+
+<h2>Create Book</h2>
+@Html.ActionLink("Back", "BookManage", null, new { @class = "btn btn-primary" })
+<br />
+@using (Html.BeginForm("CreateBook", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Title, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Title, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Author, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Author, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Author, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Description, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Description, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Price, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Price, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Quantity, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Quantity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Quantity, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.Pages, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.Pages, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.Pages, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Book.ImageUrl, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Book.ImageUrl, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Book.ImageUrl, " *required", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Category", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Id, new SelectList(Model.Category, "Id", "CategoryName"), new { @class = "dropdown col-sm-10 form-control" })
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </div>
+    </div>
+}
